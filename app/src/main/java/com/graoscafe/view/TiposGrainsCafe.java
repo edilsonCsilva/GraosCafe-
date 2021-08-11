@@ -35,8 +35,8 @@ public class TiposGrainsCafe extends AppCompatActivity {
         Intent i = getIntent();
         gui.ctx = this;
         gui.ab= getSupportActionBar();
-        gui.ab.setDisplayHomeAsUpEnabled(true); //Mostrar o botão
-        gui.ab.setHomeButtonEnabled(true);      //Ativar o botão
+        gui.ab.setDisplayHomeAsUpEnabled(true);
+        gui.ab.setHomeButtonEnabled(true);
         gui.mRecyclerViewGrains=(RecyclerView)findViewById(R.id.recycler_view_layour_recycler);
         gui.tiposGraosCafeList = (List<TiposGraosCafe>) i.getSerializableExtra("typesCoffers");
 
@@ -48,9 +48,9 @@ public class TiposGrainsCafe extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case android.R.id.home:  //ID do seu botão (gerado automaticamente pelo android, usando como está, deve funcionar
-                startActivity(new Intent(gui.ctx, ShowGraosCafe.class));  //O efeito ao ser pressionado do botão (no caso abre a activity)
-                finishAffinity();  //Método para matar a activity e não deixa-lá indexada na pilhagem
+            case android.R.id.home:
+                startActivity(new Intent(gui.ctx, ShowGraosCafe.class));
+                finishAffinity();
                 break;
             default:break;
         }
@@ -93,9 +93,9 @@ public class TiposGrainsCafe extends AppCompatActivity {
 
     public static class LineGrainAdapter extends RecyclerView.Adapter<LineGrainHolder> {
 
-        private final List<TiposGraosCafe> typesCoffes = new ArrayList<>();
+        private  List<TiposGraosCafe> typesCoffes = new ArrayList<>();
         public LineGrainAdapter(List<TiposGraosCafe> typesCoffes) {
-            typesCoffes = typesCoffes;
+            this.typesCoffes = typesCoffes;
         }
 
         @Override
@@ -106,7 +106,7 @@ public class TiposGrainsCafe extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(LineGrainHolder holder, int position) {
-            holder.title.setText("das");
+            holder.title.setText(this.typesCoffes.get(position).getNome());
         }
 
         @Override

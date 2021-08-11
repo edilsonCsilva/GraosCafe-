@@ -24,12 +24,12 @@
         "source": "/home/edi/AndroidStudioProjects/GraosCafe-/app/src/main/res/mipmap-mdpi/ic_launcher_logo_2.png"
     },
     {
-        "merged": "/home/edi/AndroidStudioProjects/GraosCafe-/app/build/intermediates/merged_res/debug/mipmap-hdpi_ic_launcher_logo_2_round.png.flat",
-        "source": "/home/edi/AndroidStudioProjects/GraosCafe-/app/src/main/res/mipmap-hdpi/ic_launcher_logo_2_round.png"
-    },
-    {
         "merged": "/home/edi/AndroidStudioProjects/GraosCafe-/app/build/intermediates/merged_res/debug/mipmap-anydpi-v26_ic_launcher_logo_2.xml.flat",
         "source": "/home/edi/AndroidStudioProjects/GraosCafe-/app/src/main/res/mipmap-anydpi-v26/ic_launcher_logo_2.xml"
+    },
+    {
+        "merged": "/home/edi/AndroidStudioProjects/GraosCafe-/app/build/intermediates/merged_res/debug/mipmap-hdpi_ic_launcher_logo_2_round.png.flat",
+        "source": "/home/edi/AndroidStudioProjects/GraosCafe-/app/src/main/res/mipmap-hdpi/ic_launcher_logo_2_round.png"
     },
     {
         "merged": "/home/edi/AndroidStudioProjects/GraosCafe-/app/build/intermediates/merged_res/debug/mipmap-anydpi-v26_ic_launcher_logo_2_round.xml.flat",
