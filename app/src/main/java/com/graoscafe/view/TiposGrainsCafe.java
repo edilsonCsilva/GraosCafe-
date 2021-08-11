@@ -1,6 +1,7 @@
 package com.graoscafe.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
@@ -29,18 +30,33 @@ public class TiposGrainsCafe extends AppCompatActivity {
         setContentView(R.layout.activity_tipos_grao_cafe);
         Intent i = getIntent();
         gui.ctx = this;
+        gui.mRecyclerViewGrains=(RecyclerView)findViewById(R.id.recycler_view_layour_recycler);
         gui.tiposGraosCafeList = (List<TiposGraosCafe>) i.getSerializableExtra("typesCoffers");
 
+        setupRecycler();
+
+    }
+
+
+
+    private void setupRecycler() {
+        // Configurando o gerenciador de layout para ser uma lista.
+        LinearLayoutManager layoutManager = new LinearLayoutManager(gui.ctx);
+        gui.mRecyclerViewGrains.setLayoutManager(layoutManager);
+        // Adiciona o adapter que irá anexar os objetos à lista.
+        // Está sendo criado com lista vazia, pois será preenchida posteriormente.
+        gui.mAdapter = new LineGrainAdapter(gui.tiposGraosCafeList);
+        gui.mRecyclerViewGrains.setAdapter(gui.mAdapter);
 
 
     }
 
 
 
-
     public  static class Gui{
         private List<TiposGraosCafe> tiposGraosCafeList;
         private RecyclerView mRecyclerViewGrains;
+        private LineGrainAdapter mAdapter;
         private Context ctx;
 
 
