@@ -3,6 +3,7 @@ package com.graoscafe.view;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +14,7 @@ import com.graoscafe.R;
 import com.graoscafe.model.TiposGraosCafe;
 import com.graoscafe.services.SevicesGrains;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class ShowGraosCafe extends AppCompatActivity {
@@ -45,8 +47,9 @@ public class ShowGraosCafe extends AppCompatActivity {
     }
 
     private void showGrains() {
-        List<TiposGraosCafe> all = gui.sevicesGrains.getAll();
-        Toast.makeText(ctx,"ooo",Toast.LENGTH_LONG).show();
+        Intent tiposGrainsCoffer = new Intent(ctx, TiposGrainsCafe.class);
+        tiposGrainsCoffer.putExtra("typesCoffers", (Serializable) gui.sevicesGrains.getAll());
+        startActivity(tiposGrainsCoffer);
     }
 
 
