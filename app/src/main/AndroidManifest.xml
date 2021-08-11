@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GraosCafe">
         <activity
-            android:name=".MainActivity"
+            android:name=".view.TiposGraoCafe"
+            android:exported="true" />
+        <activity
+            android:name=".view.ShowGraosCafe"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
