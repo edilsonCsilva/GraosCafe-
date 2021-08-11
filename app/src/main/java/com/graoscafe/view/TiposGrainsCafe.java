@@ -1,12 +1,15 @@
 package com.graoscafe.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.graoscafe.R;
 import com.graoscafe.model.TiposGraosCafe;
@@ -26,6 +29,7 @@ public class TiposGrainsCafe extends AppCompatActivity {
         gui.tiposGraosCafeList = (List<TiposGraosCafe>) i.getSerializableExtra("typesCoffers");
 
 
+
     }
 
 
@@ -33,8 +37,20 @@ public class TiposGrainsCafe extends AppCompatActivity {
 
     public  static class Gui{
         private List<TiposGraosCafe> tiposGraosCafeList;
+        private RecyclerView mRecyclerViewGrains;
         private Context ctx;
 
+
+    }
+
+
+
+    public class LineHolder extends RecyclerView.ViewHolder {
+        public TextView title;
+        public LineHolder(View itemView) {
+            super(itemView);
+            title = (TextView) itemView.findViewById(R.id.main_line_title);
+        }
     }
 
 
