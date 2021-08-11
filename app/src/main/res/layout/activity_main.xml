@@ -39,7 +39,9 @@
                android:text="@string/click_abaixo_para_exibir_os_tipos_de_gr_o_de_caf"/>
 
            <Button
-               android:padding="5dp"
+               android:background="@drawable/buuton_round_1"
+               android:padding="10dp"
+               android:textColor="@color/black"
                android:id="@+id/btnShowGrain"
                android:layout_gravity="center"
                android:textAlignment="center"

@@ -28,6 +28,7 @@ public class TiposGrainsCafe extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tipos_grao_cafe);
+        setTitle(getString(R.string.types_grain_coofers));
         Intent i = getIntent();
         gui.ctx = this;
         gui.mRecyclerViewGrains=(RecyclerView)findViewById(R.id.recycler_view_layour_recycler);
