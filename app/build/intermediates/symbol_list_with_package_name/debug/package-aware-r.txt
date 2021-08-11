@@ -2362,6 +2362,7 @@ string path_password_strike_through
 string search_menu_title
 string status_bar_notification_info_overflow
 string telaprincipal_title
+string types_grain_coofers
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style AndroidThemeColorAccentYellow

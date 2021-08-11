@@ -1,5 +1,7 @@
 package com.graoscafe.view;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -8,6 +10,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -31,6 +34,9 @@ public class TiposGrainsCafe extends AppCompatActivity {
         setTitle(getString(R.string.types_grain_coofers));
         Intent i = getIntent();
         gui.ctx = this;
+        gui.ab= getSupportActionBar();
+        gui.ab.setDisplayHomeAsUpEnabled(true); //Mostrar o botão
+        gui.ab.setHomeButtonEnabled(true);      //Ativar o botão
         gui.mRecyclerViewGrains=(RecyclerView)findViewById(R.id.recycler_view_layour_recycler);
         gui.tiposGraosCafeList = (List<TiposGraosCafe>) i.getSerializableExtra("typesCoffers");
 
@@ -39,6 +45,17 @@ public class TiposGrainsCafe extends AppCompatActivity {
     }
 
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:  //ID do seu botão (gerado automaticamente pelo android, usando como está, deve funcionar
+                startActivity(new Intent(gui.ctx, ShowGraosCafe.class));  //O efeito ao ser pressionado do botão (no caso abre a activity)
+                finishAffinity();  //Método para matar a activity e não deixa-lá indexada na pilhagem
+                break;
+            default:break;
+        }
+        return true;
+    }
 
     private void setupRecycler() {
         // Configurando o gerenciador de layout para ser uma lista.
@@ -59,6 +76,7 @@ public class TiposGrainsCafe extends AppCompatActivity {
         private RecyclerView mRecyclerViewGrains;
         private LineGrainAdapter mAdapter;
         private Context ctx;
+        private  ActionBar ab;
 
 
     }

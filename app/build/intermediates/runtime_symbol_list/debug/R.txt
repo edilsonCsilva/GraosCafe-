@@ -2361,6 +2361,7 @@ int string path_password_strike_through 0x7f0e0062
 int string search_menu_title 0x7f0e0063
 int string status_bar_notification_info_overflow 0x7f0e0064
 int string telaprincipal_title 0x7f0e0065
+int string types_grain_coofers 0x7f0e0066
 int style AlertDialog_AppCompat 0x7f0f0000
 int style AlertDialog_AppCompat_Light 0x7f0f0001
 int style AndroidThemeColorAccentYellow 0x7f0f0002
