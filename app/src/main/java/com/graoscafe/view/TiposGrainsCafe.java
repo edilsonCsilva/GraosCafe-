@@ -6,7 +6,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,6 +17,7 @@ import com.graoscafe.R;
 import com.graoscafe.model.TiposGraosCafe;
 import com.graoscafe.services.SevicesGrains;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TiposGrainsCafe extends AppCompatActivity {
@@ -45,12 +48,37 @@ public class TiposGrainsCafe extends AppCompatActivity {
 
 
 
-    public class LineHolder extends RecyclerView.ViewHolder {
+    public static class LineGrainHolder extends RecyclerView.ViewHolder {
         public TextView title;
-        public LineHolder(View itemView) {
+        public LineGrainHolder(View itemView) {
             super(itemView);
             title = (TextView) itemView.findViewById(R.id.main_line_title);
         }
+    }
+
+    public static class LineGrainAdapter extends RecyclerView.Adapter<LineGrainHolder> {
+
+        private final List<TiposGraosCafe> typesCoffes = new ArrayList<>();
+        public LineGrainAdapter(List<TiposGraosCafe> typesCoffes) {
+            typesCoffes = typesCoffes;
+        }
+
+        @Override
+        public LineGrainHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            return new LineGrainHolder(LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.main_line_view, parent, false));
+        }
+
+        @Override
+        public void onBindViewHolder(LineGrainHolder holder, int position) {
+            holder.title.setText("das");
+        }
+
+        @Override
+        public int getItemCount() {
+            return typesCoffes != null ? typesCoffes.size() : 0;
+        }
+
     }
 
 
