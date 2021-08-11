@@ -1,5 +1,7 @@
 package com.graoscafe.view;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -8,6 +10,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -28,8 +31,12 @@ public class TiposGrainsCafe extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tipos_grao_cafe);
+        setTitle(getString(R.string.types_grain_coofers));
         Intent i = getIntent();
         gui.ctx = this;
+        gui.ab= getSupportActionBar();
+        gui.ab.setDisplayHomeAsUpEnabled(true);
+        gui.ab.setHomeButtonEnabled(true);
         gui.mRecyclerViewGrains=(RecyclerView)findViewById(R.id.recycler_view_layour_recycler);
         gui.tiposGraosCafeList = (List<TiposGraosCafe>) i.getSerializableExtra("typesCoffers");
 
@@ -38,6 +45,17 @@ public class TiposGrainsCafe extends AppCompatActivity {
     }
 
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                startActivity(new Intent(gui.ctx, ShowGraosCafe.class));
+                finishAffinity();
+                break;
+            default:break;
+        }
+        return true;
+    }
 
     private void setupRecycler() {
         // Configurando o gerenciador de layout para ser uma lista.
@@ -58,6 +76,7 @@ public class TiposGrainsCafe extends AppCompatActivity {
         private RecyclerView mRecyclerViewGrains;
         private LineGrainAdapter mAdapter;
         private Context ctx;
+        private  ActionBar ab;
 
 
     }
@@ -74,9 +93,9 @@ public class TiposGrainsCafe extends AppCompatActivity {
 
     public static class LineGrainAdapter extends RecyclerView.Adapter<LineGrainHolder> {
 
-        private final List<TiposGraosCafe> typesCoffes = new ArrayList<>();
+        private  List<TiposGraosCafe> typesCoffes = new ArrayList<>();
         public LineGrainAdapter(List<TiposGraosCafe> typesCoffes) {
-            typesCoffes = typesCoffes;
+            this.typesCoffes = typesCoffes;
         }
 
         @Override
@@ -87,7 +106,7 @@ public class TiposGrainsCafe extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(LineGrainHolder holder, int position) {
-            holder.title.setText("das");
+            holder.title.setText(this.typesCoffes.get(position).getNome());
         }
 
         @Override
