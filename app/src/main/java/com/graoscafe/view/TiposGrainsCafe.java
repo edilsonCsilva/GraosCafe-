@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.graoscafe.R;
 
-public class TiposGraoCafe extends AppCompatActivity {
+public class TiposGrainsCafe extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
